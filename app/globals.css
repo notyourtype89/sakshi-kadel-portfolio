@@ -1,9 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
-:root{--butter:#f8f0b8;--pale:#fff8d9;--ink:#25251f;--muted:#66665d;--cream:#fffdf3;--line:#ded8b8;--olive:#77783e;--serif:"Space Grotesk",sans-serif}
+:root{--butter: #FFF9F0;
+  --pale: #F5EDFF;
+  --ink: #242323;
+  --muted: #686575;
+  --cream: #FFFFFF;
+  --line: #E7DFFF;
+  --olive: #2855E8;
+  --blue: #2855E8;
+  --lime: #D8F36A;
+  --lavender: #DCD3FF;
+  --coral: #FF8979;
+  --serif: "Space Grotesk", sans-serif;
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:90px}
-body{margin:0;color:var(--ink);font-family:"DM Sans",sans-serif;background-color:var(--butter);background-image:linear-gradient(rgba(110,105,53,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(110,105,53,.055) 1px,transparent 1px);background-size:24px 24px}
+body{margin:0;color:var(--ink);font-family:"DM Sans",sans-serif;background-color:var(--butter);background-image:radial-gradient(circle at 10% 15%,rgba(255,137,121,.10),transparent 24%),linear-gradient(rgba(40,85,232,.045) nsparent 1px);background-size:24px 24px}
 a{color:inherit;text-decoration:none}
 button{font:inherit}
 .page-wrap{width:min(1120px,calc(100% - 64px));margin-inline:auto}
