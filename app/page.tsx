@@ -1,181 +1,218 @@
- "use client";
 
-import Image from "next/image";
-import Link from "next/link";
-import { ArrowDownRight, ArrowUpRight, ArrowRight, Heart, Mail, ExternalLink } from "lucide-react";
-import { motion, useReducedMotion } from "framer-motion";
-import { experiences, profile, projects, skills } from "./config";
+"use client";
+
+import { useState } from "react";
+
+const projects = [
+  {
+    title: "ByteRoom",
+    type: "Business collaboration · UI/UX",
+    color: "#DCD3FF",
+    mark: "✳",
+    link: "https://www.behance.net/gallery/255708383/ByteRoom-UIUX-Case-Study",
+    image: "/projects/byteroom.png",
+  },
+  {
+    title: "Habit Flow",
+    type: "Daily habit tracker · Mobile app",
+    color: "#D8F36A",
+    mark: "✿",
+    link: "https://www.behance.net/gallery/238983071/HabitFlow-Daily-Habit-Tracker-App",
+    image: "/projects/habit-flow.png",
+  },
+  {
+    title: "Readmate",
+    type: "Book reading · Mobile app",
+    color: "#FF8979",
+    mark: "✦",
+    link: "https://www.behance.net/gallery/235681453/Book-Reading-App",
+    image: "/projects/readmate.png",
+  },
+  {
+    title: "Food Delivery App",
+    type: "Food ordering · UI/UX",
+    color: "#DCD3FF",
+    mark: "↗",
+    link: "https://www.behance.net/gallery/230595179/Online-Food-Delivery-App-Ui",
+    image: "/projects/food-delivery.png",
+  },
+  {
+    title: "Fitness App",
+    type: "Fitness · Mobile app",
+    color: "#D8F36A",
+    mark: "✳",
+    link: "https://www.behance.net/gallery/226828761/Fitness-App",
+    image: "/projects/fitness-app.png",
+  },
+  {
+    title: "Fitness Dashboard",
+    type: "Dashboard · Visual design",
+    color: "#FF8979",
+    mark: "✦",
+    link: "https://www.behance.net/gallery/222095943/Fitness-Dashboard-UI",
+    image: "/projects/fitness-dashboard.png",
+  },
+];
+
+const experience = [
+  {
+    company: "Empiric Business Solutions",
+    role: "UI/UX Designer",
+    date: "Dec 2025 – Aug 2026",
+    detail: "Owned end-to-end product design as the sole UI/UX Designer, from requirements and problem definition to user flows, wireframes, high-fidelity UI, prototyping, and developer handoff. Simplified CRM workflows across 10+ modules and designed 50+ MES screens with clear information architecture. Delivered 110+ screens across CRM, MES, collaboration and IoT products, using AI for ideation, UI exploration and UX content refinement.",
+  },
+  {
+    company: "Cognifyz Technologies",
+    role: "UI/UX Intern",
+    date: "Feb 2025 – Apr 2025",
+    detail: "Designed website interfaces from scratch, translating requirements into structured layouts and intuitive navigation. Redesigned existing websites to improve content hierarchy, layout consistency and navigation clarity. Created mobile app interfaces and visual concepts from user flows to screen-level designs.",
+  },
+  {
+    company: "Krutanic Solutions",
+    role: "UI/UX Intern",
+    date: "Jun 2024 – Aug 2024",
+    detail:"Designed a 20+ screen food delivery app, mapping user flows from restaurant discovery to checkout. Simplified menu navigation and ordering through structured layouts and clear interactions. Built high-fidelity screens and interactive prototypes with consistent UI patterns.",
+  },
+];
 
 export default function Home() {
-  const reduceMotion = useReducedMotion();
+  const [hearts, setHearts] = useState(false);
+
   return (
-    <main>
-      <header className="site-header">
-        <a className="wordmark" href="#top" aria-label="Sakshi Kadel home">sakshi<span>.</span></a>
-        <nav aria-label="Main navigation">
+    <main className="portfolio">
+      <nav className="nav">
+        <a className="wordmark" href="#">Sakshi Kadel<span>●</span></a>
+        <div className="navlinks">
           <a href="#about">About</a>
           <a href="#work">Work</a>
           <a href="#experience">Experience</a>
           <a href="#contact">Contact</a>
-          <Link className="resume-nav" href="/resume">Resume <ArrowUpRight size={14}/></Link>
-        </nav>
-      </header>
+        </div>
+      </nav>
 
-      <section className="hero page-wrap" id="top">
-        <motion.div
-          className="hero-copy"
-          initial={reduceMotion ? false : { opacity: 0, y: 18 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.65 }}
-        >
-          <p className="eyebrow"><span className="availability-dot" /> {profile.status} <span className="eyebrow-divider">/</span> {profile.location}</p>
-          <h1>Hello, I’m<br/><span>Sakshi Kadel.</span></h1>
-          <p className="hero-role">UI/UX Designer <span>·</span> Product-minded, detail-driven.</p>
-          <p className="hero-intro">
-            I design thoughtful digital experiences across web and mobile—turning complex workflows into clear, useful, and visually consistent products.
-          </p>
-          <div className="hero-actions">
-            <a className="button button-dark" href="#work">View my work <ArrowDownRight size={16}/></a>
-            <a className="text-action" href="#contact">Let’s connect <ArrowUpRight size={15}/></a>
-          </div>
-        </motion.div>
-        <motion.div
-          className="portrait-wrap"
-          initial={reduceMotion ? false : { opacity: 0, scale: 0.97 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7, delay: 0.12 }}
-        >
-          <div className="portrait-halo" />
-          <Image src={profile.photo} alt="Sakshi Kadel" width={520} height={650} priority className="portrait"/>
-          <div className="portrait-note">DESIGNING WITH<br/>INTENTION <span>✳</span></div>
-        </motion.div>
-        <div className="hero-index">PORTFOLIO <span>2026</span></div>
+      <section className="hero">
+      <div className="hero-copy">
+    <span className="edition">✳ A creative portfolio · 2026</span>
+
+   <h1 className="hero-title">
+  Port<br />
+  folio<i>✦</i>
+</h1>
+
+    <div className="role-sticker">
+      UI/UX Designer <span>✳</span>
+    </div>
+
+    <p className="intro">
+     Crafting intuitive digital experiences that balance beauty and function. I turn complex problems into elegant, user-centered designs.
+    </p>
+
+    <div className="hero-actions">
+        </div>
+</div>
+        
+<div className="hero-art">
+  <div className="id-card">
+    <span className="holder-smiley" aria-hidden="true">☻</span>
+
+    <div className="id-card-photo">
+      <img src="/profile.jpeg" alt="Sakshi Kadel" />
+    </div>
+
+    <div className="id-card-info">
+      <span className="id-card-tape" />
+      <strong>Sakshi Kadel <span>✿</span></strong>
+      <p>UI/UX Designer</p>
+      <a href="mailto:sakshikadel16@gmail.com">
+        sakshikadel16@gmail.com
+      </a>
+      <p>Pune, India</p>
+    </div>
+  </div>
+
+
+  <span className="sunburst">✳</span>
+  <span className="spark spark-one">✳</span>
+  <span className="spark spark-two">✦</span>
+</div>
+
       </section>
 
-      <section className="intro-strip page-wrap" id="about">
-        <p className="eyebrow">A LITTLE ABOUT ME</p>
-        <div className="intro-grid">
-          <h2>Curious by nature.<br/><span>Intentional by design.</span></h2>
-          <p>
-            I’m a UI/UX Designer with 1+ year of combined internship and full-time experience. I enjoy simplifying complex workflows into intuitive, accessible experiences—from early user flows and wireframes to high-fidelity interfaces and prototypes. I focus on balancing user needs with business goals.
-          </p>
+      <section className="about section" id="about">
+        <div className="section-heading">
+          <span className="section-kicker">A LITTLE ABOUT ME</span>
+          <h2>About<br />me<span>!</span></h2>
+          <span className="underline-doodle">𐔌˶ •⁠  ᴥ  ⁠• ⋆𐦯</span>
         </div>
+        <div className="about-copy">
+          <p className="about-lead">Understand challenges. Design intuitive solutions.</p>
+          <p>I'm a UI/UX Designer who looks beyond the brief to understand the problems behind a product. I identify usability gaps, explore different approaches, and turn complex challenges into intuitive, user-friendly experiences. From defining user flows and structuring information to making informed design decisions, I focus on creating solutions that improve how people interact with digital products.</p>
+          <div className="about-tags"><span>✳ User-focused</span><span>✦ Problem-solving</span><span>☺ Product thinking</span></div>
+        </div>
+        <div className="note-sticker">Identify the real problem.<br />Explore meaningful solutions.<br />Create intuitive experiences.<br /></div>
       </section>
 
-      <section className="work-section page-wrap" id="work">
-        <div className="section-topline">
-          <div>
-            <p className="eyebrow">SELECTED WORK · 2024—2026</p>
-            <h2>Things I’ve designed<span>.</span></h2>
-          </div>
-          <p className="section-aside">A selection of product concepts<br/>and interface explorations.</p>
+      <section className="work section" id="work">
+        <div className="section-title-row">
+          <div><span className="section-kicker">A FEW THINGS I’VE MADE</span><h2>Selected work<span>↗</span></h2></div>
+          <span className="side-note">Little ideas, big possibilities ✳</span>
         </div>
-
         <div className="project-grid">
-          {projects.filter((project) => project.featured).map((project, index) => (
-            <motion.a
-              className="project-card"
-              href={project.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              key={project.title}
-              initial={reduceMotion ? false : { opacity: 0, y: 18 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.12 }}
-              transition={{ duration: 0.45, delay: index * 0.06 }}
-            >
-              <div className="project-image">
-                <Image src={project.image} alt={project.alt} fill sizes="(max-width: 700px) 100vw, 50vw" />
-                <span className="project-open" aria-hidden="true"><ArrowUpRight size={20}/></span>
+          {projects.map((project, index) => (
+            <a className="project-card" href={project.link} target="_blank" rel="noreferrer" key={project.title}>
+              <div className="project-art" style={{ backgroundColor: project.color, backgroundImage: "url(" + project.image + ")", backgroundSize: "cover", backgroundPosition: "center" }}>
+                <span className="project-number">0{index + 1} / SELECTED WORK</span>
+                
               </div>
-              <div className="project-meta">
-                <div>
-                  <h3>{project.title}</h3>
-                  <p>{project.category}</p>
-                </div>
-                <span className="case-link">View case study <ArrowUpRight size={14}/></span>
-              </div>
-              <p className="project-description">{project.description}</p>
-            </motion.a>
+              <div className="project-info"><div><h3>{project.title}</h3><p>{project.type}</p></div><span>↗</span></div>
+            </a>
           ))}
         </div>
-
-        <details className="more-work">
-          <summary>Explore two more projects <ArrowRight size={15}/></summary>
-          <div className="project-grid extra-projects">
-            {projects.filter((project) => !project.featured).map((project) => (
-              <a className="project-card" href={project.href} target="_blank" rel="noopener noreferrer" key={project.title}>
-                <div className="project-image">
-                  <Image src={project.image} alt={project.alt} fill sizes="(max-width: 700px) 100vw, 50vw"/>
-                  <span className="project-open" aria-hidden="true"><ArrowUpRight size={20}/></span>
-                </div>
-                <div className="project-meta">
-                  <div><h3>{project.title}</h3><p>{project.category}</p></div>
-                  <span className="case-link">View case study <ArrowUpRight size={14}/></span>
-                </div>
-                <p className="project-description">{project.description}</p>
-              </a>
-            ))}
-          </div>
-        </details>
+        <p className="work-footnote">More details and case studies on Behance ↗</p>
       </section>
 
-      <section className="experience-section page-wrap" id="experience">
-        <div className="section-topline">
-          <div><p className="eyebrow">WHERE I’VE BEEN</p><h2>Experience<span>.</span></h2></div>
-          <p className="section-aside">Learning, contributing,<br/>and growing through design.</p>
+      <section className="experience section" id="experience">
+        <div className="section-title-row">
+          <div><span className="section-kicker">MY DESIGN JOURNEY</span><h2>Where I’ve worked<span>✳</span></h2></div>
         </div>
-        <div className="experience-list">
-          {experiences.map((item, index) => (
-            <article className="experience-item" key={item.company}>
-              <span className="experience-count">0{index + 1}</span>
-              <div className="experience-main">
-                <div className="experience-heading"><h3>{item.role}</h3><span className="experience-dates">{item.dates}</span></div>
-                <p className="company-name">{item.company}</p>
-                <ul>{item.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul>
-              </div>
+        <div className="timeline">
+          {experience.map((item, index) => (
+            <article className="timeline-item" key={item.company}>
+              <span className="timeline-dot">{index + 1}</span>
+              <div className="timeline-main"><p className="timeline-date">{item.date}</p><h3>{item.role}</h3><h4>{item.company}</h4><p>{item.detail}</p></div>
+              <span className="timeline-star">{index === 1 ? "✦" : "✳"}</span>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="skills-section page-wrap">
-        <div className="section-topline">
-          <div><p className="eyebrow">MY TOOLKIT</p><h2>How I work<span>.</span></h2></div>
-        </div>
-        <div className="skill-groups">
-          <div className="skill-group"><h3>UX / UI Design</h3><p>{skills.design.join(" · ")}</p></div>
-          <div className="skill-group"><h3>Design Tools</h3><p>{skills.tools.join(" · ")}</p></div>
-          <div className="skill-group"><h3>AI Tools</h3><p>{skills.ai.join(" · ")}</p></div>
-        </div>
+      <section className="contact section" id="contact">
+        <span className="section-kicker">HAVE A GOOD PROJECT IN MIND?</span>
+        <h2>Let’s make<br /><span>something</span><br />meaningful<span className="contact-star">✳</span></h2>
+        <p>I’m open to full-time UI/UX Design opportunities and new creative challenges.</p>
+        <a className="button dark" href="mailto:sakshikadel16@gmail.com">Say hello ↗</a>
+        <div className="social-links"><a href="https://www.linkedin.com/in/sakshi-kadel-a43190310" target="_blank" rel="noreferrer">LinkedIn ↗</a><a href="https://www.behance.net/sakshikadel" target="_blank" rel="noreferrer">Behance ↗</a><a href="mailto:sakshikadel16@gmail.com">Email ↗</a></div>
       </section>
 
-      <section className="contact-section page-wrap" id="contact">
-        <p className="eyebrow">HAVE A ROLE IN MIND?</p>
-        <h2>Let’s make<br/><span>good things happen.</span></h2>
-        <p className="contact-copy">I’m open to full-time UI/UX and Product Designer opportunities. I’d love to connect and discuss how I can contribute to your team.</p>
-        <div className="contact-actions">
-          <a className="button button-dark" href={`mailto:${profile.email}`}><Mail size={16}/> Email me <ArrowUpRight size={15}/></a>
-          <a className="text-action" href={profile.behance} target="_blank" rel="noreferrer">Behance <ExternalLink size={14}/></a>
-          <a className="text-action" href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn <ExternalLink size={14}/></a>
-          <Link className="text-action" href="/resume">Resume <ArrowUpRight size={15}/></Link>
-        </div>
-      </section>
-
-      <footer className="site-footer page-wrap">
-        <a className="wordmark" href="#top">sakshi<span>.</span></a>
-        <p>Designed with care by Sakshi Kadel</p>
-        <button className="love-button" onClick={(event) => {
-          const button = event.currentTarget;
-          button.classList.remove("celebrate");
-          void button.offsetWidth;
-          button.classList.add("celebrate");
-          window.setTimeout(() => button.classList.remove("celebrate"), 1100);
-        }} aria-label="Built with love">
-          Built with love <Heart size={14} fill="currentColor"/>
-          <span className="heart-burst" aria-hidden="true">♥　♥　♥</span>
-        </button>
-        <p className="copyright">© 2026</p>
+      <footer className="footer">
+        <span>© 2026 Sakshi Kadel</span>
+       <button
+  className="love-button"
+  onClick={() => setHearts(!hearts)}
+>
+  Built with love 😊
+  {hearts && (
+    <span className="heart-burst" aria-hidden="true">
+      <span>♥</span>
+      <span>♥</span>
+      <span>♥</span>
+      <span>♥</span>
+      <span>♥</span>
+      <span>♥</span>
+    </span>
+  )}
+</button>
+        <a href="#">Back to top ↑</a>
       </footer>
     </main>
   );

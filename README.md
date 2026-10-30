@@ -1,77 +1,36 @@
-# Sakshi Kadel — UI/UX Portfolio
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-A Next.js portfolio with a butter-yellow checkered background, responsive project thumbnails, Behance case-study links, work experience, skills, contact links, and a separate resume route.
+## Getting Started
 
-## 1. Add your assets
-
-- `public/profile.jpg` — your own profile photo.
-- `public/projects/byteroom.png` — ByteRoom thumbnail.
-- `public/projects/habit-flow.png` — Habit Flow thumbnail.
-- `public/projects/readmate.png` — Readmate thumbnail.
-- `public/projects/food-delivery.png` — Food Delivery thumbnail.
-- `public/projects/fitness-app.png` — Fitness App thumbnail.
-- `public/projects/fitness-dashboard.png` — Fitness Dashboard thumbnail.
-- `public/resume.pdf` — your current resume PDF.
-
-The provided thumbnails are copied into `public/projects/`. Replace them whenever you update your case-study covers. Keep filenames the same or update the corresponding `image` path in `app/config.ts`.
-
-## 2. Personalize your links
-
-Edit `app/config.ts`:
-- Set `profile.email` to your actual email.
-- Replace `profile.linkedin` with your real LinkedIn profile URL.
-- Add or remove objects in the `projects` array to update the work section.
-- Update descriptions and experience dates if your resume differs.
-- Set `profile.resumePdf` to your PDF path if you use another filename.
-
-Each project uses its own Behance URL and opens in a new tab. The four featured projects appear first; the Fitness App and Fitness Dashboard are under “Explore two more projects”. Change `featured` to `true` or `false` to control this.
-
-## 3. Run locally
-
-Install Node.js (LTS), unzip the project, open a terminal in this folder, then run:
+First, run the development server:
 
 ```bash
-npm install
 npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-Open http://localhost:3000.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-Check the production build before deployment:
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-```bash
-npm run build
-```
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## 4. Push to GitHub
+## Learn More
 
-1. Create a new empty repository at https://github.com/new.
-2. Open a terminal in this folder.
-3. Run the following commands (replace the URL with your repository URL):
+To learn more about Next.js, take a look at the following resources:
 
-```bash
-git init
-git add .
-git commit -m "Create Sakshi portfolio"
-git branch -M main
-git remote add origin https://github.com/YOUR-USERNAME/YOUR-REPOSITORY.git
-git push -u origin main
-```
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-## 5. Deploy to Vercel
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-1. Sign in at https://vercel.com/.
-2. Choose **Add New → Project**.
-3. Import your GitHub repository.
-4. Keep the detected Next.js settings and click **Deploy**.
-5. Vercel gives you a live URL.
-6. Later, edit files locally, run `git add .`, `git commit -m "Update portfolio"`, and `git push`. Vercel will redeploy the same project and keep its URL.
+## Deploy on Vercel
 
-## Before publishing
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-- Add your real email and LinkedIn URL in `app/config.ts`.
-- Add `public/resume.pdf` so the resume route works.
-- Check all six Behance links and thumbnails.
-- Review internship dates and wording against your resume.
-- Keep confidential MES screens and proprietary work out of the public site.
-- Replace the sample metadata URL in `app/layout.tsx` with your deployed URL after publishing.
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
